@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - TechHive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="logo">
+                    <h1><a href="index.html">TechHive</a></h1>
+                </div>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="21 21L16.65 16.65"></path>
+                        </svg>
+                    </button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+
+                <nav class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Categories</a>
+                    <a href="#" class="nav-link">Deals</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </nav>
+
+                <div class="user-actions">
+                    <div class="user-dropdown">
+                        <button class="user-btn" id="userBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>Account</span>
+                        </button>
+                        <div class="dropdown-menu" id="userDropdown">
+                            <a href="#" onclick="openModal('loginModal')">Sign In</a>
+                            <a href="#" onclick="openModal('registerModal')">Register</a>
+                            <a href="#">My Orders</a>
+                            <a href="#">Wishlist</a>
+                        </div>
+                    </div>
+
+                    <button class="cart-btn" onclick="window.location.href='cart.html'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span id="productCategory">Electronics</span>
+                <span>/</span>
+                <span id="productName">Product</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Product Details -->
+    <main class="product-main">
+        <div class="container">
+            <div class="product-container" id="productContainer">
+                <!-- Product content will be loaded here by JavaScript -->
+            </div>
+
+            <!-- Related Products -->
+            <section class="related-products">
+                <h2>Related Products</h2>
+                <div class="products-grid" id="relatedProducts">
+                    <!-- Related products will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechHive</h3>
+                    <p>Your ultimate shopping destination with lot's of products and unbeatable prices.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li>📧 support@techhive.com</li>
+                        <li>📞 099999999</li>
+                        <li>💬 Live Chat 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechHive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18,15 12,9 6,15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Image Zoom Modal -->
+    <div class="zoom-modal" id="zoomModal">
+        <div class="zoom-content">
+            <button class="zoom-close" onclick="closeZoom()">&times;</button>
+            <img id="zoomedImage" alt="Product Image">
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="modalOverlay">
+        <!-- Login Modal -->
+        <div class="modal" id="loginModal">
+            <div class="modal-header">
+                <h3>Sign In</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+                <p class="modal-footer-text">
+                    Don't have an account? 
+                    <a href="#" onclick="switchModal('registerModal')">Register here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Register Modal -->
+        <div class="modal" id="registerModal">
+            <div class="modal-header">
+                <h3>Create Account</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+                <p class="modal-footer-text">
+                    Already have an account? 
+                    <a href="#" onclick="switchModal('loginModal')">Sign in here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>

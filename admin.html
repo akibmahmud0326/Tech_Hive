@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - TechHive</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container">
+            <div class="admin-nav">
+                <div class="admin-logo">
+                    <h1>TechHive Admin</h1>
+                </div>
+                <div class="admin-user-info">
+                    <span class="admin-welcome">Welcome, <span id="adminName">Admin</span></span>
+                    <button class="admin-logout-btn" onclick="adminLogout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Dashboard -->
+    <main class="admin-main">
+        <div class="container">
+            <!-- Dashboard Stats -->
+            <section class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-info">
+                        <h3 id="totalProducts">0</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛒</div>
+                    <div class="stat-info">
+                        <h3 id="totalOrders">0</h3>
+                        <p>Total Orders</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <h3 id="totalRevenue">৳0</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3 id="totalCustomers">0</h3>
+                        <p>Customers</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admin Tabs -->
+            <section class="admin-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab('products')">Products</button>
+                    <button class="tab-btn" onclick="switchTab('orders')">Orders</button>
+                    <button class="tab-btn" onclick="switchTab('analytics')">Analytics</button>
+                </div>
+
+                <!-- Products Tab -->
+                <div class="tab-content active" id="productsTab">
+                    <div class="tab-header">
+                        <h2>Product Management</h2>
+                        <button class="btn-primary" onclick="openAddProductModal()">Add New Product</button>
+                    </div>
+                    
+                    <div class="admin-filters">
+                        <input type="text" placeholder="Search products..." id="productSearch" onkeyup="filterProducts()">
+                        <select id="categoryFilter" onchange="filterProducts()">
+                            <option value="">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="home">Home</option>
+                            <option value="books">Books</option>
+                            <option value="sports">Sports</option>
+                            <option value="beauty">Beauty</option>
+                        </select>
+                    </div>
+
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Orders Tab -->
+                <div class="tab-content" id="ordersTab">
+                    <div class="tab-header">
+                        <h2>Order Management</h2>
+                        <div class="order-filters">
+                            <select id="orderStatusFilter" onchange="filterOrders()">
+                                <option value="">All Orders</option>
+                                <option value="pending">Pending</option>
+                                <option value="processing">Processing</option>
+                                <option value="shipped">Shipped</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="admin-table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Analytics Tab -->
+                <div class="tab-content" id="analyticsTab">
+                    <div class="tab-header">
+                        <h2>Analytics & Reports</h2>
+                    </div>
+                    
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>Sales Overview</h3>
+                            <div class="chart-placeholder">
+                                <div class="chart-bar" style="height: 60%"></div>
+                                <div class="chart-bar" style="height: 80%"></div>
+                                <div class="chart-bar" style="height: 45%"></div>
+                                <div class="chart-bar" style="height: 90%"></div>
+                                <div class="chart-bar" style="height: 70%"></div>
+                            </div>
+                            <p>Monthly sales performance</p>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <h3>Top Categories</h3>
+                            <div class="category-stats">
+                                <div class="category-stat">
+                                    <span>Electronics</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 85%"></div>
+                                    </div>
+                                    <span>85%</span>
+                                </div>
+                                <div class="category-stat">
+                                    <span>Fashion</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 70%"></div>
+                                    </div>
+                                    <span>70%</span>
+                                </div>
+                                <div class="category-stat">
+                                    <span>Home</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 60%"></div>
+                                    </div>
+                                    <span>60%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="analytics-card">
+                            <h3>Recent Activity</h3>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <span class="activity-icon">📦</span>
+                                    <span>New product added: Wireless Headphones</span>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-icon">🛒</span>
+                                    <span>Order #1234 marked as shipped</span>
+                                    <span class="activity-time">4 hours ago</span>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-icon">👤</span>
+                                    <span>New customer registration</span>
+                                    <span class="activity-time">6 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Add Product Modal -->
+    <div class="modal-overlay" id="addProductModal">
+        <div class="modal admin-modal">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Add New Product</h3>
+                <button class="modal-close" onclick="closeProductModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Product Title</label>
+                            <input type="text" id="productTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="productCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="home">Home</option>
+                                <option value="books">Books</option>
+                                <option value="sports">Sports</option>
+                                <option value="beauty">Beauty</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Price (৳)</label>
+                            <input type="number" id="productPrice" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Original Price (৳)</label>
+                            <input type="number" id="productOriginalPrice" step="0.01">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Stock Quantity</label>
+                            <input type="number" id="productStock" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Badge (Optional)</label>
+                            <input type="text" id="productBadge" placeholder="e.g., Best Seller, New">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" id="productImage" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="productDescription" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeProductModal()">Cancel</button>
+                        <button type="submit" class="btn-primary" id="productSubmitBtn">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal-overlay" id="orderDetailsModal">
+        <div class="modal admin-modal">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="orderDetailsContent">
+                <!-- Order details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal-overlay active" id="adminLoginModal">
+        <div class="modal admin-modal">
+            <div class="modal-header">
+                <h3>Admin Login</h3>
+            </div>
+            <div class="modal-body">
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="adminUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="adminPassword" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Login</button>
+                        <a href="index.html" class="btn-secondary">Back to Store</a>
+                    </div>
+                </form>
+                <div class="login-error" id="loginError" style="display: none;">
+                    Invalid username or password
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

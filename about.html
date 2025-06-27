@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ShopMax</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="logo">
+                    <h1><a href="index.html">TechHive</a></h1>
+                </div>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="21 21L16.65 16.65"></path>
+                        </svg>
+                    </button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+
+                <nav class="nav-links" id="navLinks">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Categories</a>
+                    <a href="#" class="nav-link">Deals</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                </nav>
+
+                <div class="user-actions">
+                    <div class="user-dropdown">
+                        <button class="user-btn" id="userBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>Account</span>
+                        </button>
+                        <div class="dropdown-menu" id="userDropdown">
+                            <a href="#" onclick="openModal('loginModal')">Sign In</a>
+                            <a href="#" onclick="openModal('registerModal')">Register</a>
+                            <a href="#">My Orders</a>
+                            <a href="#">Wishlist</a>
+                        </div>
+                    </div>
+
+                    <button class="cart-btn" onclick="window.location.href='cart.html'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <h1>About TechHive</h1>
+                <p>Your ultimate shopping destination built with passion and innovation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <main class="about-main">
+        <div class="container">
+            <!-- Mission Section -->
+            <section class="about-section">
+                <div class="about-content">
+                    <h2>Our Mission</h2>
+                    <p>At TechHive, we're committed to revolutionizing the online shopping experience. We believe that everyone deserves access to quality products at competitive prices, delivered with exceptional service and cutting-edge technology.</p>
+                    
+                    <div class="mission-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Products</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">Uptime</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="team-section">
+                <div class="team-header">
+                    <h2>Meet Our Team</h2>
+                    <p>The talented individuals behind TechHive's success</p>
+                </div>
+
+                <div class="team-grid">
+                    <!-- Team Lead & Developer -->
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <div class="avatar-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="role-badge lead">Lead</div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Raduan Ahamed</h3>
+                            <p class="team-role">Team Lead & Developer</p>
+                            <p class="team-description">
+                                Visionary leader and full-stack developer who architected TechHive from the ground up. 
+                                With expertise in modern web technologies and a passion for creating seamless user experiences, 
+                                Raduan ensures every line of code meets the highest standards of quality and performance.
+                            </p>
+                            <div class="team-skills">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Leadership</span>
+                            </div>
+                        </div>
+                        <div class="team-social">
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" title="GitHub">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Designer -->
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <div class="avatar-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="role-badge designer">Designer</div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Akib Mahmud</h3>
+                            <p class="team-role">UI/UX Designer</p>
+                            <p class="team-description">
+                                Creative mastermind behind TechHive's stunning visual identity and intuitive user interface. 
+                                Azmira combines aesthetic excellence with user-centered design principles to create experiences 
+                                that are both beautiful and functional, ensuring every interaction feels natural and delightful.
+                            </p>
+                            <div class="team-skills">
+                                <span class="skill-tag">UI Design</span>
+                                <span class="skill-tag">UX Research</span>
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">Prototyping</span>
+                            </div>
+                        </div>
+                        <div class="team-social">
+                            <a href="#" class="social-link" title="Dribbble">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" title="Behance">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 8l7.89 2.26a2 2 0 0 1 1.11 1.11L14.26 19H21l-3-6 3-6H8.74l-.74-2H3z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Feature Testing -->
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <div class="avatar-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="role-badge tester">QA</div>
+                        </div>
+                        <div class="team-info">
+                            <h3>Azmira Shekh</h3>
+                            <p class="team-role">Quality Assurance & Feature Testing</p>
+                            <p class="team-description">
+                                Meticulous quality guardian who ensures TechHive delivers flawless performance across all devices and scenarios. 
+                                Akib's comprehensive testing strategies and attention to detail guarantee that every feature works perfectly 
+                                before reaching our users, maintaining our reputation for reliability and excellence.
+                            </p>
+                            <div class="team-skills">
+                                <span class="skill-tag">Test Automation</span>
+                                <span class="skill-tag">Bug Tracking</span>
+                                <span class="skill-tag">Performance Testing</span>
+                                <span class="skill-tag">Quality Assurance</span>
+                            </div>
+                        </div>
+                        <div class="team-social">
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Values Section -->
+            <section class="values-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3>Customer First</h3>
+                        <p>Every decision we make is guided by what's best for our customers. Your satisfaction is our success.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🚀</div>
+                        <h3>Innovation</h3>
+                        <p>We continuously push boundaries and embrace new technologies to enhance your shopping experience.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3>Trust</h3>
+                        <p>We build lasting relationships through transparency, reliability, and consistent delivery on our promises.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">⚡</div>
+                        <h3>Excellence</h3>
+                        <p>We strive for perfection in everything we do, from product quality to customer service.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <div class="contact-content">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions or want to join our team? We'd love to hear from you!</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p>team@techhive.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>099999999</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Visit Us</h4>
+                                <p>Shop No #44<br>Bashundhara City Complex, Panthopath, Dhaka</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechHive</h3>
+                    <p>Your ultimate shopping destination with lot's of products and unbeatable prices.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li>📧 support@techhive.com</li>
+                        <li>📞 099999999</li>
+                        <li>💬 Live Chat 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechHive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18,15 12,9 6,15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="modalOverlay">
+        <!-- Login Modal -->
+        <div class="modal" id="loginModal">
+            <div class="modal-header">
+                <h3>Sign In</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+                <p class="modal-footer-text">
+                    Don't have an account? 
+                    <a href="#" onclick="switchModal('registerModal')">Register here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Register Modal -->
+        <div class="modal" id="registerModal">
+            <div class="modal-header">
+                <h3>Create Account</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+                <p class="modal-footer-text">
+                    Already have an account? 
+                    <a href="#" onclick="switchModal('loginModal')">Sign in here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHive - Your Ultimate Shopping Destination</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>TechHive</h1>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="21 21L16.65 16.65"></path>
+                        </svg>
+                    </button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Categories</a>
+                    <a href="#" class="nav-link">Deals</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="admin.html" class="nav-link">Admin</a>
+                </nav>
+
+                <!-- User Actions -->
+                <div class="user-actions">
+                    <div class="user-dropdown">
+                        <button class="user-btn" id="userBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>Account</span>
+                        </button>
+                        <div class="dropdown-menu" id="userDropdown">
+                            <a href="#" onclick="openModal('loginModal')">Sign In</a>
+                            <a href="#" onclick="openModal('registerModal')">Register</a>
+                            <a href="#">My Orders</a>
+                            <a href="#">Wishlist</a>
+                        </div>
+                    </div>
+
+                    <button class="cart-btn" onclick="window.location.href='cart.html'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider" id="heroSlider">
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-text">
+                            <h2>Summer Sale </h2>
+                            <p>Up to 70% off on electronics, fashion, and home essentials</p>
+                            <button class="cta-btn">Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-bg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-text">
+                            <h2>New Arrivals</h2>
+                            <p>Discover the latest trends in fashion and technology</p>
+                            <button class="cta-btn">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-bg" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+            </div>
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="hero-text">
+                            <h2>Free Delivery</h2>
+                            <p>On orders over ৳ 5000 - Limited time offer</p>
+                            <button class="cta-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-bg" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+            </div>
+        </div>
+        <div class="hero-indicators">
+            <button class="indicator active" onclick="goToSlide(0)"></button>
+            <button class="indicator" onclick="goToSlide(1)"></button>
+            <button class="indicator" onclick="goToSlide(2)"></button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('electronics')">
+                    <div class="category-icon">📱</div>
+                    <h3>Electronics</h3>
+                    <p>Latest gadgets & tech</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('fashion')">
+                    <div class="category-icon">👕</div>
+                    <h3>Fashion</h3>
+                    <p>Trending styles</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('home')">
+                    <div class="category-icon">🏠</div>
+                    <h3>Home & Garden</h3>
+                    <p>Comfort & style</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('books')">
+                    <div class="category-icon">📚</div>
+                    <h3>Books</h3>
+                    <p>Knowledge & stories</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('sports')">
+                    <div class="category-icon">⚽</div>
+                    <h3>Sports</h3>
+                    <p>Active lifestyle</p>
+                </div>
+                <div class="category-card" onclick="filterByCategory('beauty')">
+                    <div class="category-icon">💄</div>
+                    <h3>Beauty</h3>
+                    <p>Self-care essentials</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterProducts('all')">All</button>
+                    <button class="filter-tab" onclick="filterProducts('electronics')">Electronics</button>
+                    <button class="filter-tab" onclick="filterProducts('fashion')">Fashion</button>
+                    <button class="filter-tab" onclick="filterProducts('home')">Home</button>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">Load More Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <h2>Join TechHive Prime</h2>
+                    <p>Get free delivery, exclusive deals, and early access to sales</p>
+                    <button class="promo-btn">Try Prime Free</button>
+                </div>
+                <div class="promo-image">
+                    <div class="promo-graphic">🚚💨</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for exclusive deals and updates</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" id="newsletterEmail" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechHive</h3>
+                    <p>Your ultimate shopping destination with lot's of products and unbeatable prices.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li>📧 support@techhive.com</li>
+                        <li>📞 099999999</li>
+                        <li>💬 Live Chat 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechHive. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18,15 12,9 6,15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="modalOverlay">
+        <!-- Login Modal -->
+        <div class="modal" id="loginModal">
+            <div class="modal-header">
+                <h3>Sign In</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+                <p class="modal-footer-text">
+                    Don't have an account? 
+                    <a href="#" onclick="switchModal('registerModal')">Register here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Register Modal -->
+        <div class="modal" id="registerModal">
+            <div class="modal-header">
+                <h3>Create Account</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+                <p class="modal-footer-text">
+                    Already have an account? 
+                    <a href="#" onclick="switchModal('loginModal')">Sign in here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
